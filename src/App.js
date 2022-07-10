@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   ChakraProvider,
-  extendTheme
+  extendTheme,
 } from '@chakra-ui/react';
 
 import { HomePage } from './Pages';
