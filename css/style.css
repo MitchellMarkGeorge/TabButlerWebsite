@@ -27,13 +27,13 @@ body {
 }
 
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .section-container {
-    height: 100%;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+  height: 100%;
+  overflow-y: auto;
+  scroll-snap-type: y proximity;
 }
 
 h1,
@@ -111,7 +111,8 @@ img {
 .showcase {
   padding: 2rem 0;
   height: 100vh;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 .showcase .container {
   display: grid;
@@ -120,7 +121,6 @@ img {
   align-items: center;
   justify-content: center;
   height: 100%;
-  scroll-snap-align: center;
 }
 
 .showcase h1 {
@@ -158,3 +158,25 @@ img {
   justify-content: center;
   text-align: center;
 }
+
+#contact_me {
+    margin-top: 1.5rem;
+}
+
+#contact_me span {
+    font-weight: bold;
+}
+
+
+/* @media (max-width: 700px) {
+  .showcase .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .showcase img {
+    width: 80%;
+    margin: auto;
+    order: 1;
+  }
+} */
