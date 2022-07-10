@@ -138,14 +138,15 @@ img {
   color: var(--black);
   padding: 0.8rem 1.5rem;
   border: none;
-  cursor: pointer;
+  /* cursor: pointer; */
   font-size: 1.1rem;
   border-radius: 8px;
 }
 
-.btn:hover {
+/* .btn:hover {
   background-color: #eee;
-}
+} */
+
 
 /* .showcase.search, .showcase.join {
     background-color: var(--white);
