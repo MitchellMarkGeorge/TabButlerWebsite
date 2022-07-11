@@ -47,7 +47,7 @@ export const NavBar: React.FC = () => {
         />
         <IconButton
           as={Link}
-          href="https://github.com/MitchellMarkGeorge/TabButler"
+          href="https://discord.gg/vf8mfTTNN3"
           aria-label="Discord Server link"
           icon={<FaDiscord fontSize="24px" />}
           variant="ghost"

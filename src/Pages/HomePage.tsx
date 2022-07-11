@@ -7,18 +7,23 @@ import {
   useColorModeValue,
   Stack,
   Button,
+  Link,
+  Divider,
+  HStack,
 } from '@chakra-ui/react';
 
 import { NavBar } from '../components';
+import { MdMail } from 'react-icons/md';
+import { FaDiscord } from 'react-icons/fa';
 
 export const HomePage: React.FC = () => {
   const theme = useColorModeValue('dark', 'light');
 
   return (
     <Box textAlign="center" fontSize="xl">
-      <VStack position="relative" spacing={48}>
+      <VStack position="relative" spacing={24}>
         <NavBar />
-        <VStack spacing={8} justifyContent="center">
+        <VStack spacing={8} justifyContent="center" paddingTop={12}>
           <Stack
             spacing={8}
             paddingLeft={10}
@@ -50,7 +55,12 @@ export const HomePage: React.FC = () => {
           </Stack>
         </VStack>
 
-        <VStack spacing={8} justifyContent="center">
+        <VStack
+          spacing={8}
+          justifyContent="center"
+          paddingTop={28}
+          paddingBottom={24}
+        >
           <Stack
             spacing={8}
             paddingLeft={10}
@@ -76,6 +86,37 @@ export const HomePage: React.FC = () => {
               }}
             />
           </Stack>
+        </VStack>
+
+        <Divider />
+
+        <VStack justifyContent="center" paddingBottom={24}>
+          <Text fontSize="2xl" fontWeight="bold">
+            Join the Beta Launch on 1st of August.
+          </Text>
+          <Text fontSize="xl" fontWeight="light" fontStyle="italic">
+            Change the way you use your browser forever.
+          </Text>
+          <HStack spacing={8} paddingTop={8}>
+            <Button
+              as={Link}
+              leftIcon={<MdMail />}
+              colorScheme="teal"
+              variant="solid"
+              href="mailto:mitchellmmarkgeorge@gmail.com"
+            >
+              Email Me
+            </Button>
+            <Button
+              as={Link}
+              leftIcon={<FaDiscord />}
+              colorScheme="facebook"
+              variant="solid"
+              href="https://discord.gg/vf8mfTTNN3"
+            >
+              Join Discord
+            </Button>
+          </HStack>
         </VStack>
       </VStack>
     </Box>
