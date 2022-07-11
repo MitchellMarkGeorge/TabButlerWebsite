@@ -18,7 +18,7 @@ export const NavBar: React.FC = () => {
 
   return (
     <HStack
-      maxW={1080}
+      maxWidth={1080}
       justifyContent="space-between"
       paddingRight={['5px', '30px']}
       paddingLeft={['5px', '30px']}

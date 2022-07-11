@@ -27,7 +27,7 @@ export const HomePage: React.FC = () => {
             direction={{ base: 'column', lg: 'row' }}
             alignItems="center"
           >
-            <VStack maxW={400} spacing={5}>
+            <VStack maxWidth={400} spacing={5}>
               <Text fontSize={['md', 'xl', '4xl']} fontWeight="bold">
                 A Tab Manager at Your Service.
               </Text>
@@ -59,7 +59,7 @@ export const HomePage: React.FC = () => {
             direction={{ base: 'column', lg: 'row' }}
             alignItems="center"
           >
-            <VStack maxW={400} spacing={5}>
+            <VStack maxWidth={400} spacing={5}>
               <Text fontSize={['md', 'xl', '4xl']} fontWeight="bold">
                 Execute powerful actions from any tab.
               </Text>
