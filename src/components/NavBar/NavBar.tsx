@@ -8,10 +8,10 @@ export const NavBar: React.FC = () => {
     <HStack
       maxW={1080}
       justifyContent="space-between"
-      pr={['5px', '30px']}
-      pl={['5px', '30px']}
-      pt={['10px', '30px']}
-      w="100%"
+      paddingRight={['5px', '30px']}
+      paddingLeft={['5px', '30px']}
+      paddingTop={['10px', '30px']}
+      width="100%"
     >
       <HStack>
         <Image height={30} src="/static/img/logo.png" />

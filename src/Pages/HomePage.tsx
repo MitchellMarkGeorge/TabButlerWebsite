@@ -20,9 +20,9 @@ export const HomePage: React.FC = () => {
         <VStack spacing={8}>
           <Stack
             spacing={8}
-            mt={20}
-            pl="10"
-            pr="10"
+            marginTop={20}
+            paddingLeft="10"
+            paddingRight="10"
             direction={{ base: 'column', lg: 'row' }}
             alignItems="center"
           >
