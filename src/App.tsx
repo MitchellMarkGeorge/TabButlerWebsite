@@ -7,7 +7,7 @@ const App: React.FC = () => {
     <ChakraProvider
       theme={extendTheme({
         fonts: {
-          body: `'Open Sans', sans-serif`,
+          body: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;`,
         },
       })}
     >

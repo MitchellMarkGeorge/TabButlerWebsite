@@ -10,16 +10,15 @@ import {
 } from '@chakra-ui/react';
 
 import { NavBar } from '../components';
-import { FaArrowRight } from 'react-icons/fa';
 
 export const HomePage: React.FC = () => {
   const theme = useColorModeValue('dark', 'light');
 
   return (
     <Box textAlign="center" fontSize="xl">
-      <VStack position="relative">
+      <VStack position="relative" spacing={48}>
         <NavBar />
-        <VStack spacing={8} paddingTop={32} height="100vh">
+        <VStack spacing={8} justifyContent="center">
           <Stack
             spacing={8}
             paddingLeft={10}
@@ -36,14 +35,14 @@ export const HomePage: React.FC = () => {
                 browser.
               </Text>
 
-              <Button rightIcon={<FaArrowRight />} colorScheme="telegram">
-                Join the Beta
+              <Button colorScheme="telegram" disabled>
+                Beta Launching on 1st of August
               </Button>
             </VStack>
             <Image
               src={`/static/img/search-modal-${theme}.png`}
               sx={{
-                height: 'min(29.4vw + 70.78px,447px)',
+                height: 'min(29.4vw + 70.78px, 447px)',
                 width: 'auto',
                 objectFit: 'contain',
               }}
@@ -51,12 +50,12 @@ export const HomePage: React.FC = () => {
           </Stack>
         </VStack>
 
-        <VStack spacing={8} height="100vh">
+        <VStack spacing={8} justifyContent="center">
           <Stack
             spacing={8}
             paddingLeft={10}
             paddingRight={10}
-            direction={{ base: 'column', lg: 'row' }}
+            direction={{ base: 'column', lg: 'row-reverse' }}
             alignItems="center"
           >
             <VStack maxWidth={400} spacing={5}>
