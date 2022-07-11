@@ -1,9 +1,21 @@
-import { HStack, Image, Text, IconButton, Link } from '@chakra-ui/react';
+import {
+  HStack,
+  Image,
+  Text,
+  IconButton,
+  Link,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import { FaCoffee, FaDiscord, FaGithub } from 'react-icons/fa';
 
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 export const NavBar: React.FC = () => {
+  const color: string = useColorModeValue(
+    'rgb(255, 255, 255, 0.6)',
+    'rgb(26, 32, 44, 0.6)'
+  );
+
   return (
     <HStack
       maxW={1080}
@@ -11,7 +23,13 @@ export const NavBar: React.FC = () => {
       paddingRight={['5px', '30px']}
       paddingLeft={['5px', '30px']}
       paddingTop={['10px', '30px']}
+      paddingBottom="10px"
       width="100%"
+      top={0}
+      position="sticky"
+      backgroundColor={color}
+      backdropFilter={'blur(10px)'}
+      zIndex={1}
     >
       <HStack>
         <Image height={30} src="/static/img/logo.png" />
