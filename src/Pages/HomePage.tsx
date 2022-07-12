@@ -33,11 +33,10 @@ export const HomePage: React.FC = () => {
           >
             <VStack maxWidth={400} spacing={5}>
               <Text fontSize={['md', 'xl', '4xl']} fontWeight="bold">
-                A Tab Manager at Your Service.
+                A tab manager at your service.
               </Text>
               <Text fontSize={['sm', 'md', 'xl']} fontWeight="light">
-                The last browser extension you will need to navigate in your
-                browser.
+                Switch to your wanted tab with incredible ease. Go where you want, when you want.
               </Text>
 
               <Button colorScheme="telegram" disabled>
