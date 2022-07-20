@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Text, VStack, ScaleFade, Kbd } from '@chakra-ui/react';
+import { Box, Text, VStack, ScaleFade, Kbd, Link } from '@chakra-ui/react';
 import { NavBar } from '../components';
 
 export const WelcomePage: React.FC = () => {
@@ -28,10 +28,10 @@ export const WelcomePage: React.FC = () => {
           <NavBar />
           <ScaleFade in={animationIn} initialScale={0.8}>
             <VStack spacing={8} justifyContent="center" paddingTop={16}>
-              <Text fontSize="6xl" fontWeight="thin">
+              <Text fontSize="6xl" fontWeight="light">
                 Thanks for installing Tab Butler 🥳🤗!
               </Text>
-              <Text fontSize="4xl" fontWeight="thin">
+              <Text fontSize="4xl" fontWeight="light">
                 Let's get you started!
               </Text>
               <Box maxWidth="60%">
@@ -47,12 +47,12 @@ export const WelcomePage: React.FC = () => {
                   </Kbd>
                 </Text>
               </Box>
-              <Text fontSize="2xl" fontWeight="thin">
+              <Text fontSize="2xl" fontWeight="light">
                 If those shortcuts don't work for you, feel free to change them
-                at{' '}
-                <Text textDecoration="underline" fontWeight="bold">
-                  {getShortcutsUrl()}
-                </Text>
+                at {getShortcutsUrl()}.
+              </Text>
+              <Text fontSize="2xl" fontWeight="light">
+                To report any bugs or feeback for us, please submit them with <Link href='https://forms.gle/3JyYNs48999h7GKB8' color="blue.500">this</Link> form.
               </Text>
             </VStack>
           </ScaleFade>
