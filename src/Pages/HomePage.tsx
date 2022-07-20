@@ -14,7 +14,7 @@ import {
 
 import { NavBar } from '../components';
 import { MdMail } from 'react-icons/md';
-import { FaDiscord } from 'react-icons/fa';
+import { FaClipboard, FaDiscord, FaTwitter } from 'react-icons/fa';
 
 export const HomePage: React.FC = () => {
   const theme = useColorModeValue('dark', 'light');
@@ -36,11 +36,12 @@ export const HomePage: React.FC = () => {
                 A tab manager at your service.
               </Text>
               <Text fontSize={['sm', 'md', 'xl']} fontWeight="light">
-                Switch to your wanted tab with incredible ease. Go where you want, when you want.
+                Switch to your wanted tab with incredible ease. Go where you
+                want, when you want.
               </Text>
 
-              <Button colorScheme="telegram" disabled>
-                Beta Launching on 1st of August
+              <Button as={Link} colorScheme="telegram" disabled>
+                Beta Launching August 1st
               </Button>
             </VStack>
             <Image
@@ -73,7 +74,7 @@ export const HomePage: React.FC = () => {
               </Text>
               <Text fontSize={['sm', 'md', 'xl']} fontWeight="light">
                 Do common actions like creating new tabs, muting the current
-                tab, and much more - all from your fingertips.
+                tab, and much more - all from one shortcut.
               </Text>
             </VStack>
             <Image
@@ -91,7 +92,7 @@ export const HomePage: React.FC = () => {
 
         <VStack justifyContent="center" paddingBottom={24}>
           <Text fontSize="2xl" fontWeight="bold">
-            Join the Beta Launch on 1st of August.
+            Join the Beta Launch on August 1st
           </Text>
           <Text fontSize="xl" fontWeight="light" fontStyle="italic">
             Change the way you use your browser forever.
@@ -108,12 +109,30 @@ export const HomePage: React.FC = () => {
             </Button>
             <Button
               as={Link}
+              leftIcon={<FaClipboard />}
+              colorScheme="green"
+              variant="solid"
+              href="https://forms.gle/zfSvtCPqE9TQR98h8"
+            >
+              Feedback Form
+            </Button>
+            <Button
+              as={Link}
               leftIcon={<FaDiscord />}
               colorScheme="facebook"
               variant="solid"
               href="https://discord.gg/vf8mfTTNN3"
             >
               Join Discord
+            </Button>
+            <Button
+              as={Link}
+              leftIcon={<FaTwitter />}
+              colorScheme="twitter"
+              variant="solid"
+              href="https://twitter.com/TabButlerExt"
+            >
+              Twitter
             </Button>
           </HStack>
         </VStack>

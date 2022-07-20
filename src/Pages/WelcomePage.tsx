@@ -3,12 +3,23 @@ import { Box, Text, VStack, ScaleFade, Kbd } from '@chakra-ui/react';
 import { NavBar } from '../components';
 
 export const WelcomePage: React.FC = () => {
-  const isMac: boolean = window.navigator.userAgent.includes('Mac');
+  const isMac = navigator.userAgent.includes('Mac');
+  // const isChrome = navigator.userAgent.includes('Chrome');
+  const isFirefox = navigator.userAgent.includes('Firefox');
+
   const [animationIn, setAnimationIn] = useState(false);
 
   setTimeout(() => {
     setAnimationIn(true);
-  }, 500);
+  }, 300); // think about this
+
+  const getShortcutsUrl = () => {
+    if (isFirefox) {
+      return 'about:addons';
+    } else {
+      return 'chrome://extensions/shorcuts';
+    }
+  };
 
   return (
     <Box textAlign="center" fontSize="xl">
@@ -31,9 +42,18 @@ export const WelcomePage: React.FC = () => {
                 </Text>
                 <Text fontSize="2xl" opacity={0.9} fontWeight="light">
                   and you can execute actions from any tab using:{' '}
-                  <Kbd>{isMac ? 'Option' : 'Alt'} + Shift + Space</Kbd>
+                  <Kbd>
+                    {isMac ? 'Option' : 'Alt'} + Shift + {isMac ? 'Space' : 'K'}
+                  </Kbd>
                 </Text>
               </Box>
+              <Text fontSize="2xl" fontWeight="thin">
+                If those shortcuts don't work for you, feel free to change them
+                at{' '}
+                <Text textDecoration="underline" fontWeight="bold">
+                  {getShortcutsUrl()}
+                </Text>
+              </Text>
             </VStack>
           </ScaleFade>
         </VStack>
