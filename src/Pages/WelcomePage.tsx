@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import { Box, Text, VStack, ScaleFade, Kbd, Link } from '@chakra-ui/react';
 import { NavBar } from '../components';
+import { isFirefox, isMac } from '../utils';
 
 export const WelcomePage: React.FC = () => {
-  const isMac = navigator.userAgent.includes('Mac');
-  // const isChrome = navigator.userAgent.includes('Chrome');
-  const isFirefox = navigator.userAgent.includes('Firefox');
 
   const [animationIn, setAnimationIn] = useState(false);
 
@@ -28,7 +26,7 @@ export const WelcomePage: React.FC = () => {
           <NavBar />
           <ScaleFade in={animationIn} initialScale={0.8}>
             <VStack spacing={8} justifyContent="center" paddingTop={16}>
-              <Text fontSize="6xl" fontWeight="light">
+              <Text fontSize="6xl" fontWeight="thin">
                 Thanks for installing Tab Butler 🥳🤗!
               </Text>
               <Text fontSize="4xl" fontWeight="light">

@@ -13,11 +13,14 @@ import {
 } from '@chakra-ui/react';
 
 import { NavBar } from '../components';
-import { MdMail } from 'react-icons/md';
+import { MdChangeHistory, MdMail } from 'react-icons/md';
 import { FaClipboard, FaDiscord, FaTwitter } from 'react-icons/fa';
+import { isFirefox } from '../utils';
 
 export const HomePage: React.FC = () => {
   const theme = useColorModeValue('dark', 'light');
+  const CHROME_URL = "https://chrome.google.com/webstore/detail/tab-butler/iiamdlbonhenkdcalhfpkbhgffdmkign"
+  const FIREFOX_URL = "https://addons.mozilla.org/en-US/firefox/addon/tab-butler";
 
   return (
     <Box textAlign="center" fontSize="xl">
@@ -40,8 +43,12 @@ export const HomePage: React.FC = () => {
                 want, when you want.
               </Text>
 
-              <Button as={Link} colorScheme="telegram" disabled>
-                Beta Launching August 1st
+              <Button
+                as={Link}
+                colorScheme="telegram"
+                href={isFirefox ? FIREFOX_URL : CHROME_URL}
+              >
+              Join the Beta
               </Button>
             </VStack>
             <Image
@@ -92,7 +99,7 @@ export const HomePage: React.FC = () => {
 
         <VStack justifyContent="center" paddingBottom={24}>
           <Text fontSize="2xl" fontWeight="bold">
-            Join the Beta Launch on August 1st
+            Join the Beta Now!
           </Text>
           <Text fontSize="xl" fontWeight="light" fontStyle="italic">
             Change the way you use your browser forever.
@@ -103,9 +110,18 @@ export const HomePage: React.FC = () => {
               leftIcon={<MdMail />}
               colorScheme="teal"
               variant="solid"
-              href="mailto:mitchellmmarkgeorge@gmail.com"
+              href="mailto:tabbutlerextension@gmail.com"
             >
-              Email Me
+              Contact Us
+            </Button>
+            <Button
+              as={Link}
+              leftIcon={<MdChangeHistory />}
+              colorScheme="purple"
+              variant="solid"
+              href="https://tab-butler.canny.io/changelog"
+            >
+              Changelog
             </Button>
             <Button
               as={Link}

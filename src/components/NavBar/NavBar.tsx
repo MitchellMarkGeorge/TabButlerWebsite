@@ -6,7 +6,7 @@ import {
   Link,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { FaCoffee, FaDiscord, FaGithub } from 'react-icons/fa';
+import { FaCoffee, FaDiscord, FaGithub, FaTwitter } from 'react-icons/fa';
 
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 
@@ -50,6 +50,13 @@ export const NavBar: React.FC = () => {
           href="https://discord.gg/vf8mfTTNN3"
           aria-label="Discord Server link"
           icon={<FaDiscord fontSize="24px" />}
+          variant="ghost"
+        />
+        <IconButton
+          as={Link}
+          href="https://twitter.com/TabButlerExt"
+          aria-label="Twitter link"
+          icon={<FaTwitter fontSize="24px" />}
           variant="ghost"
         />
         <IconButton
