@@ -4,7 +4,8 @@ import { NavBar } from '../components';
 import { isFirefox, isMac } from '../utils';
 
 export const WelcomePage: React.FC = () => {
-
+  const queryParams = new URLSearchParams(window.location.search);
+  const isMissingCommands = queryParams.get('missing_commands') === 'true';
   const [animationIn, setAnimationIn] = useState(false);
 
   setTimeout(() => {
@@ -15,7 +16,7 @@ export const WelcomePage: React.FC = () => {
     if (isFirefox) {
       return 'about:addons';
     } else {
-      return 'chrome://extensions/shorcuts';
+      return 'chrome://extensions/shortcuts';
     }
   };
 
@@ -32,25 +33,62 @@ export const WelcomePage: React.FC = () => {
               <Text fontSize="4xl" fontWeight="light">
                 Let's get you started!
               </Text>
-              <Box maxWidth="60%">
-                <Text fontSize="2xl" opacity={0.9} fontWeight="light">
-                  Once the extension is fully activated, you can search your
-                  tabs from any tab by pressing:{' '}
-                  <Kbd>{isMac ? 'Command' : 'Ctrl'} + Shift + Space</Kbd>
+
+              {isMissingCommands ? (
+                <Text
+                  fontSize="3xl"
+                  color="red.500"
+                  fontWeight={isMissingCommands ? 'bold' : 'light'}
+                >
+                  <div>
+                    It seems like you have another extension in your browser
+                    that uses the same shortcuts as Tab Butler.
+                  </div>
+                  <div>
+                    Please head over to{' '}
+                    <Box as="span" textDecoration="underline">
+                      {getShortcutsUrl()}
+                    </Box>{' '}
+                    to set new shortcuts so the extension can work in your
+                    browser.
+                  </div>
                 </Text>
-                <Text fontSize="2xl" opacity={0.9} fontWeight="light">
-                  and you can execute actions from any tab using:{' '}
-                  <Kbd>
-                    {isMac ? 'Option' : 'Alt'} + Shift + {isMac ? 'Space' : 'K'}
-                  </Kbd>
-                </Text>
-              </Box>
+              ) : (
+                <>
+                  <Box maxWidth="60%">
+                    <Text fontSize="2xl" opacity={0.9} fontWeight="light">
+                      Once the extension is fully activated, you can search your
+                      tabs from any tab by pressing:{' '}
+                      <Kbd>{isMac ? 'Command' : 'Ctrl'} + Shift + Space</Kbd>
+                    </Text>
+                    <Text fontSize="2xl" opacity={0.9} fontWeight="light">
+                      and you can execute actions from any tab using:{' '}
+                      <Kbd>
+                        {isMac ? 'Option' : 'Alt'} + Shift +{' '}
+                        {isMac ? 'Space' : 'K'}
+                      </Kbd>
+                    </Text>
+                  </Box>
+                  <Text
+                    fontSize="2xl"
+                    fontWeight={isMissingCommands ? 'bold' : 'light'}
+                  >
+                    If those shortcuts don't work for you, feel free to change
+                    them at <Box as="span" textDecoration="underline">
+                      {getShortcutsUrl()}.
+                    </Box>
+                  </Text>
+                </>
+              )}
               <Text fontSize="2xl" fontWeight="light">
-                If those shortcuts don't work for you, feel free to change them
-                at {getShortcutsUrl()}.
-              </Text>
-              <Text fontSize="2xl" fontWeight="light">
-                To report any bugs or feeback for us, please submit them with <Link href='https://forms.gle/3JyYNs48999h7GKB8' color="blue.500">this</Link> form.
+                To report any bugs or feeback for us, please submit them with{' '}
+                <Link
+                  href="https://forms.gle/3JyYNs48999h7GKB8"
+                  color="blue.500"
+                >
+                  this
+                </Link>{' '}
+                form.
               </Text>
             </VStack>
           </ScaleFade>
