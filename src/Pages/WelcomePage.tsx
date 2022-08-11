@@ -40,17 +40,13 @@ export const WelcomePage: React.FC = () => {
                   color="red.500"
                   fontWeight={isMissingCommands ? 'bold' : 'light'}
                 >
+                  <div>Error: another extension conflicts with Tab Butler's shortcuts.</div>
                   <div>
-                    It seems like you have another extension in your browser
-                    that uses the same shortcuts as Tab Butler.
-                  </div>
-                  <div>
-                    Please head over to{' '}
+                    Go to{" "}
                     <Box as="span" textDecoration="underline">
                       {getShortcutsUrl()}
                     </Box>{' '}
-                    to set new shortcuts so the extension can work in your
-                    browser.
+                    set non-conflicting shortcuts for Tab Butler to work.
                   </div>
                 </Text>
               ) : (
