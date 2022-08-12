@@ -3,12 +3,33 @@ import {
   Image,
   Text,
   IconButton,
-  Link,
   useColorModeValue,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  useMediaQuery,
 } from '@chakra-ui/react';
-import { FaCoffee, FaDiscord, FaGithub, FaTwitter } from 'react-icons/fa';
+import { AiOutlineMenu,  } from "react-icons/ai"
 
 import { ColorModeSwitcher } from './ColorModeSwitcher';
+import { Container } from '../Container';
+import { BuyMeACoffeButton, DiscordButton, GitHubButton, TwitterButton } from './Buttons';
+
+const DropdownMenu = () => (
+  <Menu>
+  <MenuButton as={IconButton} icon={<AiOutlineMenu />} variant="outline"/>
+  <MenuList>
+    
+    <MenuItem as={GitHubButton}/>
+    <MenuItem as={DiscordButton}/>
+    <MenuItem as={GitHubButton}/>
+    <MenuItem as={TwitterButton}/>
+    <MenuItem as={BuyMeACoffeButton}/>
+    <MenuItem as={ColorModeSwitcher}/>
+  </MenuList>
+</Menu>
+)
 
 export const NavBar: React.FC = () => {
   const color: string = useColorModeValue(
@@ -16,57 +37,44 @@ export const NavBar: React.FC = () => {
     'rgb(26, 32, 44, 0.6)'
   );
 
+  const [isLg] = useMediaQuery("(min-width: 62em)")
+
+  // use grop down menu
+
   return (
     <HStack
-      maxWidth={1080}
-      justifyContent="space-between"
-      paddingRight={['5px', '30px']}
-      paddingLeft={['5px', '30px']}
-      paddingTop={['10px', '30px']}
-      paddingBottom="10px"
+      paddingTop="20px"
+      paddingBottom="20px"
       width="100%"
+      position={{base: "sticky", lg: "fixed"}}
       top={0}
-      position="sticky"
       backgroundColor={color}
       backdropFilter={'blur(10px)'}
       zIndex={1}
     >
-      <HStack>
-        <Image height={30} src="/static/img/logo.png" />
-        <Text fontSize={['sm', 'md', 'lg']} fontWeight="semibold">
-          Tab Butler
-        </Text>
-      </HStack>
-      <HStack spacing="20px">
-        <IconButton
-          as={Link}
-          href="https://github.com/MitchellMarkGeorge/TabButler"
-          aria-label="GitHub link"
-          icon={<FaGithub fontSize="24px" />}
-          variant="ghost"
-        />
-        <IconButton
-          as={Link}
-          href="https://discord.gg/vf8mfTTNN3"
-          aria-label="Discord Server link"
-          icon={<FaDiscord fontSize="24px" />}
-          variant="ghost"
-        />
-        <IconButton
-          as={Link}
-          href="https://twitter.com/TabButlerExt"
-          aria-label="Twitter link"
-          icon={<FaTwitter fontSize="24px" />}
-          variant="ghost"
-        />
-        <IconButton
-          as={Link}
-          href="https://buymeacoffee.com/mitchellmmg79"
-          aria-label="Buy me a coffee link"
-          icon={<FaCoffee />}
-        />
-        <ColorModeSwitcher />
-      </HStack>
+      <Container>
+        <HStack>
+          <Image height={42} src="/static/img/logo.png" />
+          <Text fontSize={['sm', 'md', 'lg']} fontWeight="semibold">
+            Tab Butler
+          </Text>
+        </HStack>
+       {!isLg ? <DropdownMenu/> : (
+
+        <HStack
+          spacing="20px"
+          justifySelf="flex-end"
+          alignItems="center"
+          justifyContent="center"
+        >
+        <GitHubButton/>
+        <DiscordButton/>
+        <TwitterButton/>
+        <BuyMeACoffeButton/>
+          <ColorModeSwitcher />
+        </HStack>
+       )} 
+      </Container>
     </HStack>
   );
 };

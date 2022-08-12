@@ -16,6 +16,15 @@ root.render(
     <ColorModeScript />
     <ChakraProvider
       theme={extendTheme({
+        styles: {
+         global: {
+          "html, body": {
+            height: "100%",
+            width: "100%",
+          },
+
+         } 
+        }, 
         fonts: {
           body: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;`,
         },
