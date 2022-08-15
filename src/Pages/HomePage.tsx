@@ -8,12 +8,15 @@ import {
   Stack,
   Button,
   Link,
+  ButtonGroup,
 } from '@chakra-ui/react';
 
 import { NavBar, SectionContainer, Showcase } from '../components';
 import { MdChangeHistory, MdMail } from 'react-icons/md';
 import { FaClipboard } from 'react-icons/fa';
-import { CHROME_URL, FIREFOX_URL, isFirefox } from '../utils';
+import { CHROME_URL, FIREFOX_URL } from '../utils';
+import { AiFillChrome } from 'react-icons/ai';
+import { GrFirefox } from 'react-icons/gr';
 
 export const HomePage: React.FC = () => {
   const theme = useColorModeValue('dark', 'light');
@@ -33,15 +36,10 @@ export const HomePage: React.FC = () => {
         overflowY="auto"
         scrollSnapType="y"
       >
-      <NavBar />
+        <NavBar />
         <Showcase>
           <SectionContainer>
-            <VStack
-              maxWidth={400}
-              width="100%"
-              spacing={5}
-              margin="auto"
-            >
+            <VStack maxWidth={400} width="100%" spacing={5} margin="auto">
               <Text fontSize="5xl" fontWeight="bold">
                 A tab manager at your service.
               </Text>
@@ -49,13 +47,24 @@ export const HomePage: React.FC = () => {
                 Switch to your wanted tab with incredible ease. Go where you
                 want, when you want.
               </Text>
-              <Button
-                as={Link}
-                colorScheme="telegram"
-                href={isFirefox ? FIREFOX_URL : CHROME_URL}
-              >
-                Join the Beta
-              </Button>
+              <ButtonGroup size='md'>
+                <Button
+                  as={Link}
+                  colorScheme="telegram"
+                  leftIcon={<AiFillChrome />}
+                  href={CHROME_URL}
+                >
+                  Get on Chrome
+                </Button>
+                <Button
+                  as={Link}
+                  colorScheme="telegram"
+                  leftIcon={<GrFirefox />}
+                  href={FIREFOX_URL}
+                >
+                  Get on Firefox
+                </Button>
+              </ButtonGroup>
             </VStack>
 
             <Image
@@ -66,9 +75,8 @@ export const HomePage: React.FC = () => {
         </Showcase>
 
         <Showcase>
-          {' '}
           <SectionContainer>
-            <VStack maxWidth={400} spacing={5}               margin="auto">
+            <VStack maxWidth={400} spacing={5} margin="auto">
               <Text fontSize="5xl" fontWeight="bold">
                 Execute powerful actions from any tab.
               </Text>

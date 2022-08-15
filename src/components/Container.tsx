@@ -13,7 +13,7 @@ export const Container = (props: Props) => {
       width={"100%"}
       height="100%"
       display="grid"
-      gridTemplateColumns={"repeat(2, 1fr)"}
+      gridTemplateColumns={{ base: "1fr 50px", lg: "repeat(2, 1fr)"}}
       gap="2rem"
     >
       {props.children}
