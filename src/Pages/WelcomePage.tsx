@@ -77,6 +77,16 @@ export const WelcomePage: React.FC = () => {
                 </>
               )}
               <Text fontSize="2xl" fontWeight="light">
+               To read about recent changes and features in Tab Butler, please head over to our{" "}
+                <Link
+                  href="https://tab-butler.canny.io/changelog"
+                  color="blue.500"
+                >
+                 changelog. 
+                </Link>
+                
+              </Text>
+              <Text fontSize="2xl" fontWeight="light">
                 To report any bugs or feeback for us, please submit them with{' '}
                 <Link
                   href="https://forms.gle/3JyYNs48999h7GKB8"
